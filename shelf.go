@@ -1,13 +1,12 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
 
-    "daduic.com/spotify"
+	"daduic.com/spotify"
 )
 
 func main() {
-    // Get a greeting message and print it.
-    message := spotify.Hello("Gladys")
-    fmt.Println(message)
+	message := spotify.Hello("Gladys")
+	fmt.Println(message)
 }
