@@ -18,6 +18,7 @@ func Hello(name string) string {
 	}
 
 	defer resp.Body.Close()
+
 	body, _ := io.ReadAll(resp.Body)
 	return string(body)
 }
