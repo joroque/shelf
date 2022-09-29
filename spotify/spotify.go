@@ -1,10 +1,23 @@
 package spotify
 
-import "fmt"
+import (
+	"io"
+	"log"
+	"net/http"
+)
 
-// Hello returns a greeting for the named person.
+// TODO: Fetch the current playback from API
 func Hello(name string) string {
-	// Return a greeting that embeds the name in a message.
-	message := fmt.Sprintf("Hi, %v. Welcome!", name)
-	return message
+	client := &http.Client{}
+	req, _ := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/ditto", nil)
+	//req.Header.Add("If-None-Match", `W/"wyzzy"`)
+	resp, err := client.Do(req)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer resp.Body.Close()
+	body, _ := io.ReadAll(resp.Body)
+	return string(body)
 }
