@@ -4,7 +4,6 @@ Copyright © 2022 Jorge Romero jorge@daduic.com
 package cmd
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/pocketbase/pocketbase"
@@ -12,11 +11,12 @@ import (
 )
 
 // serveCmd represents the serve command
+// Executes the PocketBase web application
+// FIXME: Make this a proxy command that yields control to the PocketBase bin, maybe like app.RootCmd.SetArgs(os.Args[2:])
 var serveCmd = &cobra.Command{
 	Use:   "serve",
 	Short: "PocketBase CLI",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("serve called")
 		app := pocketbase.New()
 
 		// app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
