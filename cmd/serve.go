@@ -13,6 +13,15 @@ import (
 // serveCmd represents the serve command
 // Executes the PocketBase web application
 // FIXME: Make this a proxy command that yields control to the PocketBase bin, maybe like app.RootCmd.SetArgs(os.Args[2:])
+// FIXME: Alternatively, make shelf's daemon a custom console command https://pocketbase.io/docs/use-as-framework/. For example:
+// Registering custom console commands, eg.:
+// app.RootCmd.AddCommand(&cobra.Command{
+//     Use: "hello",
+//     Run: func(command *cobra.Command, args []string) {
+//         print("Hello world!")
+//     },
+// })
+
 var serveCmd = &cobra.Command{
 	Use:   "serve",
 	Short: "PocketBase CLI",
